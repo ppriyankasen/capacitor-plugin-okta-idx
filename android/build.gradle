@@ -17,6 +17,9 @@ buildscript {
 
 apply plugin: 'com.android.library'
 
+def oktaProperties = new Properties()
+rootProject.file("okta.properties").withInputStream { oktaProperties.load(it) }
+
 android {
     compileSdkVersion project.hasProperty('compileSdkVersion') ? rootProject.ext.compileSdkVersion : 32
     defaultConfig {
@@ -25,6 +28,12 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+       
+        buildConfigField "String", 'ISSUER', "\"${oktaProperties.getProperty('issuer')}\""
+        buildConfigField "String", 'CLIENT_ID', "\"${oktaProperties.getProperty('clientId')}\""
+        buildConfigField "String[]", 'SCOPES', "{${oktaProperties.getProperty('scopes')}}"
+        buildConfigField "String", 'REDIRECT_URI', "\"${oktaProperties.getProperty('redirectUri')}\""
+
     }
     buildTypes {
         release {
@@ -51,6 +60,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':capacitor-android')
     implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
+    implementation 'com.okta.idx.sdk:okta-idx-java-api:3.0.4'
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"

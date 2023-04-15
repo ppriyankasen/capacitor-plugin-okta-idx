@@ -1,0 +1,51 @@
+{
+  "api": {
+    "name": "OktaIdxPlugin",
+    "slug": "oktaidxplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "fetchTokens",
+        "signature": "(username: string, password: string, config: any) => Promise<any>",
+        "parameters": [
+          {
+            "name": "username",
+            "docs": "",
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "docs": "",
+            "type": "string"
+          },
+          {
+            "name": "config",
+            "docs": "",
+            "type": "any"
+          }
+        ],
+        "returns": "Promise<any>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "fetchtokens"
+      },
+      {
+        "name": "authenticate",
+        "signature": "() => void",
+        "parameters": [],
+        "returns": "void",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "authenticate"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [],
+  "enums": [],
+  "typeAliases": [],
+  "pluginConfigs": []
+}

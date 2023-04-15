@@ -13,24 +13,36 @@ npx cap sync
 
 <docgen-index>
 
-* [`echo(...)`](#echo)
+* [`fetchTokens(...)`](#fetchtokens)
+* [`authenticate()`](#authenticate)
 
 </docgen-index>
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-### echo(...)
+### fetchTokens(...)
 
 ```typescript
-echo(options: { value: string; }) => Promise<{ value: string; }>
+fetchTokens(username: string, password: string, config: any) => Promise<any>
 ```
 
-| Param         | Type                            |
-| ------------- | ------------------------------- |
-| **`options`** | <code>{ value: string; }</code> |
+| Param          | Type                |
+| -------------- | ------------------- |
+| **`username`** | <code>string</code> |
+| **`password`** | <code>string</code> |
+| **`config`**   | <code>any</code>    |
 
-**Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
+**Returns:** <code>Promise&lt;any&gt;</code>
+
+--------------------
+
+
+### authenticate()
+
+```typescript
+authenticate() => void
+```
 
 --------------------
 
